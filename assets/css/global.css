@@ -7,3 +7,20 @@
     margin: 0 auto;
     width: 100%;
 }
+
+@font-face {
+    font-family: 'Averta Cy';
+    src: url('../fonts/Averta CY W01 Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Averta Cy';
+    src: url('../fonts/AvertaDemoPE-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: "Averta Cy";
+}

@@ -35,28 +35,7 @@
           </NuxtLink>
         </div>
         <!--  Language Switcher button    -->
-        <div class="flex items-center gap-3 relative">
-          <div class="flex items-center gap-1.5 group w-full max-w-[100px]">
-            <i class="icon-global text-base text-white/50 duration-300 group-hover:text-green"></i>
-            <button @click="toggleSwitcher"
-                    class="text-sm duration-300 leading-normal text-dark font-medium group-hover:text-green text-white">
-              {{ currentLanguage }}
-            </button>
-
-            <i :class="iconClass" class="icon-arrow text-white group-hover:text-green text-[13px] duration-300"></i>
-          </div>
-          <Transition name="fade">
-            <div v-if="showLang" @click="switchLanguage('uz')"
-                 class="absolute cursor-pointer hover:bg-white/20 bg-white/10 border border-white/20 flex rounded-xl w-[120px] px-2 duration-300 justify-start text-white py-2 backdrop-blur top-7 left-0">
-              <div class="flex items-center gap-1.5">
-                <img :src="otherFlag" :alt="t('title')"/>
-                <p class="text-xs font-semibold">
-                  {{ otherLanguage }}
-                </p>
-              </div>
-            </div>
-          </Transition>
-        </div>
+        <LayoutHeaderLanguage />
       </div>
     </div>
   </Transition>
@@ -66,10 +45,11 @@
 import {ref, onMounted, onUnmounted} from "vue";
 import {phoneNumberFormatter} from '@/utils'
 import {useI18n} from '~/composables/usei18n'
-import { useLanguageSwitcher } from '~/composables/switcherLanguage'
+const route = useRoute();
+const layout = computed(() => route.meta.layout);
 
-const {toggleSwitcher, currentLanguage, iconClass, showLang, switchLanguage, otherFlag, otherLanguage} = useLanguageSwitcher()
-const {locale, t} = useI18n()
+
+const {t} = useI18n()
 const show = ref(true);
 
 interface AboutUsData {

@@ -5,7 +5,6 @@
   >
     <LayoutHeaderTransition class="hidden md:block " v-if="data" :data="data"/>
     <LayoutHeaderCustom/>
-
   </header>
 </template>
 
@@ -16,12 +15,14 @@ import {configApi} from "~/composables/configApi";
 
 const {$get} = configApi();
 const data = ref(null);
+const frontendTranslation = ref(null);
 const route = useRoute();
-const layout = computed(() => route.meta.layout); // layout qiymatini olish
+const layout = computed(() => route.meta.layout);
 
 onMounted(async () => {
   try {
     data.value = await $get("/common/AboutUs/");
+    frontendTranslation.value = await $get("/common/FrontendTranslations/");
   } catch (error) {
     console.error('Error:', error.message || error);
   }

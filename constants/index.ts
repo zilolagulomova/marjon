@@ -1,14 +1,26 @@
 export const links = [
     {
-        name: 'About Us',
+        name: 'about_us',
         path: '/about'
     },
     {
-        name: 'Category',
+        name: 'vehicle_types',
         path: '/category'
     },
     {
-        name: 'Contact Us',
+        name: 'calculator',
+        path: '/calculator'
+    },
+    {
+        name: 'news',
+        path: '/news'
+    },
+    {
+        name: 'video_news',
+        path: '/video_news'
+    },
+    {
+        name: 'feedback',
         path: '/contact-us'
     },
 ]

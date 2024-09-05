@@ -1,12 +1,24 @@
 <template>
-  <div :class="['container', { 'slide-fade': !show }]"
-       class="container border border-white/20 rounded-xl w-full h-[12vh]">
+  <div
+      class="container p-6 lg:rounded-[20px] border-b lg:border border-white/[12%]">
     <div class="flex items-center justify-between">
-      <ul>
+      <NuxtLink to="/">
+        <CommonLogo/>
+      </NuxtLink>
+      <ul class="flex items-center gap-7">
         <li v-for="item in links">
-          <NuxtLink :to="item.path">{{ item.name }}</NuxtLink>
+          <NuxtLink class="text-sm hover:text-green duration-300 cursor-pointer text-white" :to="item.path">
+            {{ $t(`${item.name}`) }}
+          </NuxtLink>
         </li>
       </ul>
+      <CommonButton
+          :text="$t('enter')"
+          variant="primary"
+          size="md"
+          iconPosition="left"
+          icon="icon-enter"
+      />
     </div>
   </div>
 </template>
@@ -15,7 +27,11 @@
 import {ref, onMounted, onUnmounted} from 'vue';
 import {links} from '@/constants'
 
+useHead({
+  title: 'Marjon'
+})
 const show = ref(true);
+
 
 function handleScroll() {
   const scrollThreshold = 10;

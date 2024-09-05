@@ -1,6 +1,7 @@
 <template>
- <h4>Index PAge</h4>
-  <SectionsHero/>
+  <main>
+    <SectionsHero/>
+  </main>
 </template>
 
 <script setup lang="ts">
