@@ -53,7 +53,7 @@
               <div
                   class="w-[184px] h-[58px] border border-gray rounded-lg bg-gray-100 transition-300 hover:border-green flex-center cursor-pointer"
                   :class="{
-                  '!border-green active-vehicle-shadow':
+                  '!border-green':
                     index === activeItem,
                 }"
                   @click="activeItem = index"

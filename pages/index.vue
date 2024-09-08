@@ -1,9 +1,11 @@
 <template>
   <main>
-    <SectionsHero />
-    <SectionsAbout />
-    <SectionsPartners :data="data?.results || []" />
-    <SectionsVehicles :vehicles="vehicles?.results || []" />
+    <SectionsHero/>
+    <SectionsAbout/>
+    <SectionsPartners :data="data?.results || []"/>
+    <SectionsVehicles :vehicles="vehicles?.results || []"/>
+    <SectionsNews :news="news?.results || []"/>
+    <SectionsNewsVideo :videoNews="videoNews?.results || []"/>
   </main>
 </template>
 
@@ -14,8 +16,45 @@ definePageMeta({
 import {configApi} from "~/composables/configApi";
 
 const {$get} = configApi()
-const data = ref<{ results: any[] } | null>(null);
-const vehicles = ref<{ results: any[] } | null>(null);
+
+interface TrustedUsItem {
+  url: string,
+  logo: string
+}
+
+interface CarType {
+  id: number,
+  title: string,
+  slug: string,
+  image: string,
+  ordering: number,
+}
+
+interface News {
+  slug: string,
+  title: string,
+  cover_image: string,
+  created_at: string,
+  is_redirect: boolean,
+  news_url: string
+}
+
+interface VideoNews {
+  id: number,
+  slug: string,
+  title: string,
+  video_link: string,
+  cover_image: string,
+  created_at: string,
+  is_redirect: boolean,
+  news_url: string
+}
+
+const data = ref<{ results: TrustedUsItem[] } | null>(null);
+const vehicles = ref<{ results: CarType[] } | null>(null);
+const news = ref<{ results: News[] } | null>(null);
+const videoNews = ref<{ results: VideoNews[] } | null>(null);
+
 const trustedUsFetch = async () => {
   try {
     data.value = await $get("common/TrustedUs/", {
@@ -27,7 +66,7 @@ const trustedUsFetch = async () => {
     console.error('Error:', error.message || error);
   }
 }
-const vehiclesFetch = async() => {
+const vehiclesFetch = async () => {
   try {
     vehicles.value = await $get("cars/CarsTypeList/")
     console.log(vehicles.value)
@@ -35,9 +74,27 @@ const vehiclesFetch = async() => {
     console.error(e)
   }
 }
+const newsFetch = async () => {
+  try {
+    news.value = await $get("news/NewsList/")
+  } catch (error) {
+    console.log(error.message || error);
+  }
+}
+
+const videoNewsFetch = async () => {
+  try {
+    videoNews.value = await $get("news/VideoNewsList/")
+  } catch (error) {
+    console.log(error.message || error);
+  }
+}
 onMounted(async () => {
-  trustedUsFetch()
-  vehiclesFetch()
+  try {
+    await Promise.all([trustedUsFetch(), vehiclesFetch(), newsFetch(), videoNewsFetch()])
+  } catch (error) {
+    console.error("Xatolik:", error);
+  }
 });
 </script>
 <style scoped>
