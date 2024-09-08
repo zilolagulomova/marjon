@@ -14,11 +14,17 @@ module.exports = {
                     DEFAULT: '#59DEBE'
                 },
                 gray: {
-                    DEFAULT: '#E7E5EA'
+                    DEFAULT: '#E7E5EA',
+                    100: '#f6f5f7',
+                    200: '#8c849a',
                 },
                 red: {
                     DEFAULT: '#FF334C'
-                }
+                },
+                dark: {
+                    DEFAULT: '#190A35',
+                    100: '#000000'
+                },
             }
         },
     },

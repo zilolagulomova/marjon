@@ -16,8 +16,7 @@
               class="icon-global duration-300 group-hover:text-green"
           />
           <span
-              class="text-sm duration-300 font-semibold group-hover:text-green"
-              :class="variant === 'dark' ? 'text-white' : 'text-dark'"
+              class="text-sm duration-300 font-semibold group-hover:text-green text-white"
           >
           {{ currentLang?.name }}
         </span>

@@ -1,6 +1,6 @@
 <template>
   <header
-      class="fixed w-full"
+      class="fixed w-full z-20"
       :class="{ 'header-white': layout === 'orange', 'header-purple': layout === 'default' }"
   >
     <LayoutHeaderTransition class="hidden md:block " v-if="data" :data="data"/>

@@ -20,7 +20,7 @@
 </template>
 
 <script setup lang="ts">
-useHead({title: 'About Us'})
+useHead({title: 'Main Us'})
 definePageMeta({
   layout: 'orange',
 })

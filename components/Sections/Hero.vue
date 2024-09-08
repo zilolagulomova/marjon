@@ -13,7 +13,7 @@
           >{{ $t('each') }}</span
           ></template>
         </i18n-t>
-        <p class="mt-6 lg:mt-10 text-base leading-[140%] font-light text-white/40"> {{ $t('main_subtitle') }}</p>
+        <p class="mt-6 lg:mt-10 text-base leading-[140%] font-light text-gray-200"> {{ $t('main_subtitle') }}</p>
         <img class="w-full mt-8 lg:hidden" src="/images/isuzu.webp" alt="cargo"/>
         <div class="flex items-center gap-4 mt-6 lg:mt-[70px]">
           <CommonButton
@@ -32,7 +32,7 @@
           />
         </div>
       </div>
-      <img class="w-full max-lg:hidden z-10 pointer-events-none ml-16 max-w-[862px]" src="/images/isuzu.webp"
+      <img class="w-full max-lg:hidden  pointer-events-none ml-16 max-w-[862px]" src="/images/isuzu.webp"
            alt="cargo"/>
     </div>
   </section>
@@ -40,19 +40,7 @@
 </template>
 
 <script setup lang="ts">
-import {ref, onMounted} from 'vue'
-import {configApi} from '~/composables/configApi'
 
-const {$get} = configApi()
-const data = ref<any>(null)
-
-onMounted(async () => {
-  try {
-    data.value = await $get("/common/FrontendTranslations/");
-  } catch (e) {
-    console.error(e)
-  }
-})
 </script>
 
 <style scoped>

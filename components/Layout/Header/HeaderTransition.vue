@@ -7,13 +7,13 @@
         <!--  Contacts      -->
         <div class="flex items-center gap-3">
           <div class="flex items-center gap-1.5 group">
-            <i class="icon-phone-call text-white/20 group-hover:text-green text-lg duration-300"></i>
+            <i class="icon-phone-call text-gray-200 group-hover:text-green text-lg duration-300"></i>
             <NuxtLink class="text-xs font-normal group-hover:text-green duration-300 text-white"
                       :to="data?.phone_number">{{ phoneNumberFormatter(data?.phone_number) }}
             </NuxtLink>
           </div>
           <div class="flex items-center gap-1.5 group">
-            <i class="icon-location text-white/20 group-hover:text-green text-lg duration-300"></i>
+            <i class="icon-location text-gray-200 group-hover:text-green text-lg duration-300"></i>
             <NuxtLink class="text-xs font-normal group-hover:text-green duration-300 text-white"
                       :to="map" target="_blank">{{ data?.location.name }}
             </NuxtLink>
@@ -22,16 +22,16 @@
         <!--  Links      -->
         <div class="flex items-center gap-3">
           <NuxtLink target="_blank" class="" :to="data?.facebook">
-            <i class="icon-facebook text-xl hover:text-green duration-300 text-white/50"></i>
+            <i class="icon-facebook text-xl hover:text-green duration-300 text-gray-200"></i>
           </NuxtLink>
           <NuxtLink target="_blank" class="" :to="data?.instagram">
-            <i class="icon-instagram text-xl hover:text-green duration-300 text-white/50"></i>
+            <i class="icon-instagram text-xl hover:text-green duration-300 text-gray-200"></i>
           </NuxtLink>
           <NuxtLink target="_blank" class="" :to="data?.telegram">
-            <i class="icon-telegram text-xl hover:text-green duration-300 text-white/50"></i>
+            <i class="icon-telegram text-xl hover:text-green duration-300 text-gray-200"></i>
           </NuxtLink>
           <NuxtLink target="_blank" class="" :to="data?.youtube">
-            <i class="icon-youtube text-xl hover:text-green duration-300 text-white/50"></i>
+            <i class="icon-youtube text-xl hover:text-green duration-300 text-gray-200"></i>
           </NuxtLink>
         </div>
         <!--  Language Switcher button    -->

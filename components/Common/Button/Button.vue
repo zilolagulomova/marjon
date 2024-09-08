@@ -27,7 +27,7 @@ console.log('iconPosition:', props.iconPosition);
 const buttonClasses = computed(() => {
   const variants = {
     primary: 'bg-green text-white hover:bg-green font-normal hover:shadow-[0px_6px_30px_0px_rgba(63,242,200,0.40)]',
-    secondary: 'bg-gray text-dark  hover:bg-dark/20',
+    secondary: 'bg-gray text-dark hover:bg-dark/20',
     outline: 'border !border-gray text-dark hover:bg-white-100 hover:!border-dark/20',
     dark: 'bg-white/[12%] text-white hover:bg-white/[24%]',
     danger: 'bg-red text-white hover:bg-[#EB1F38]',
