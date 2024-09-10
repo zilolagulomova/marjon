@@ -17,7 +17,8 @@
     "swiper": "^11.1.12",
     "vue": "latest",
     "vue-i18n": "^9.14.0",
-    "vue-tooltip-v": "^0.0.5"
+    "vue-tooltip-v": "^0.0.5",
+    "vue3-autocounter": "^1.0.7"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.12.1",

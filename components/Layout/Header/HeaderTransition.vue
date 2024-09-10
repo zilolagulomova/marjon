@@ -7,14 +7,19 @@
         <!--  Contacts      -->
         <div class="flex items-center gap-3">
           <div class="flex items-center gap-1.5 group">
-            <i class="icon-phone-call text-gray-200 group-hover:text-green text-lg duration-300"></i>
-            <NuxtLink class="text-xs font-normal group-hover:text-green duration-300 text-white"
+            <i class="icon-phone-call text-gray-200 group-hover:text-green text-lg duration-300"
+               :class="{'text-green': layout === 'orange', 'text-gray-200': layout === 'default'}"
+            ></i>
+            <NuxtLink class="text-xs font-normal group-hover:text-green duration-300"
+                      :class="{'text-dark': layout === 'orange', 'text-white': layout === 'default'}"
                       :to="data?.phone_number">{{ phoneNumberFormatter(data?.phone_number) }}
             </NuxtLink>
           </div>
           <div class="flex items-center gap-1.5 group">
-            <i class="icon-location text-gray-200 group-hover:text-green text-lg duration-300"></i>
-            <NuxtLink class="text-xs font-normal group-hover:text-green duration-300 text-white"
+            <i class="icon-location group-hover:text-green text-lg duration-300"
+               :class="{'text-green': layout === 'orange', 'text-gray-200': layout === 'default'}"></i>
+            <NuxtLink class="text-xs font-normal group-hover:text-green duration-300"
+                      :class="{'text-dark': layout === 'orange', 'text-white': layout === 'default'}"
                       :to="map" target="_blank">{{ data?.location.name }}
             </NuxtLink>
           </div>
@@ -35,7 +40,7 @@
           </NuxtLink>
         </div>
         <!--  Language Switcher button    -->
-        <LayoutHeaderLanguage />
+        <LayoutHeaderLanguage/>
       </div>
     </div>
   </Transition>
@@ -45,6 +50,7 @@
 import {ref, onMounted, onUnmounted} from "vue";
 import {phoneNumberFormatter} from '@/utils'
 import {useI18n} from '~/composables/usei18n'
+
 const route = useRoute();
 const layout = computed(() => route.meta.layout);
 
@@ -84,6 +90,7 @@ function handleScroll() {
     show.value = true;
   }
 }
+
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
 });

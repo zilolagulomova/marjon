@@ -23,7 +23,6 @@ interface ButtonProps {
 }
 
 const props = defineProps<ButtonProps>()
-console.log('iconPosition:', props.iconPosition);
 const buttonClasses = computed(() => {
   const variants = {
     primary: 'bg-green text-white hover:bg-green font-normal hover:shadow-[0px_6px_30px_0px_rgba(63,242,200,0.40)]',
@@ -44,7 +43,6 @@ const sizeClasses = computed(() => {
 })
 
 const iconPositions = computed(() => {
-  console.log('iconPosition value:', props.iconPosition);
   return props.iconPosition === 'right' ? 'flex-row-reverse' : '!flex-row';
 });
 

@@ -7,7 +7,9 @@
       </NuxtLink>
       <ul class="flex items-center gap-7">
         <li v-for="item in links">
-          <NuxtLink class="text-sm hover:text-green duration-300 cursor-pointer text-white" :to="item.path">
+          <NuxtLink :class="{'text-dark' : layout === 'orange', 'text-white' : layout === 'default', 'active': route.path === item.path}"
+                    class="text-sm hover:text-green duration-300 cursor-pointer" :to="item.path"
+          >
             {{ $t(`${item.name}`) }}
           </NuxtLink>
         </li>
@@ -26,12 +28,15 @@
 <script setup lang="ts">
 import {ref, onMounted, onUnmounted} from 'vue';
 import {links} from '@/constants'
+import {useRoute} from "vue-router";
+
 
 useHead({
   title: 'Marjon'
 })
 const show = ref(true);
-
+const route = useRoute();
+const layout = route.meta.layout;
 
 function handleScroll() {
   const scrollThreshold = 10;
@@ -55,5 +60,8 @@ onUnmounted(() => {
 .slide-fade {
   transition: ease-in 0.8s;
   transform: translateY(0px);
+}
+.active {
+  color: #59DEBE;
 }
 </style>

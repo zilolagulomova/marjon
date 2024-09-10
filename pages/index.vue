@@ -6,6 +6,10 @@
     <SectionsVehicles :vehicles="vehicles?.results || []"/>
     <SectionsNews :news="news?.results || []"/>
     <SectionsNewsVideo :videoNews="videoNews?.results || []"/>
+    <div v-if="statistics?.results">
+      <SectionsStatistics :statistics="statistics?.results || []"/>
+    </div>
+    <SectionsApps />
   </main>
 </template>
 
@@ -50,10 +54,16 @@ interface VideoNews {
   news_url: string
 }
 
+interface Statistics {
+  description: string,
+  value: number,
+}
+
 const data = ref<{ results: TrustedUsItem[] } | null>(null);
 const vehicles = ref<{ results: CarType[] } | null>(null);
 const news = ref<{ results: News[] } | null>(null);
 const videoNews = ref<{ results: VideoNews[] } | null>(null);
+const statistics = ref<{ results: Statistics[] } | null>(null);
 
 const trustedUsFetch = async () => {
   try {
@@ -89,9 +99,17 @@ const videoNewsFetch = async () => {
     console.log(error.message || error);
   }
 }
+const statisticsFetch = async () => {
+  try {
+    statistics.value = await $get("common/Statistic/")
+  } catch (error) {
+    console.log(error.message || error);
+  }
+}
+
 onMounted(async () => {
   try {
-    await Promise.all([trustedUsFetch(), vehiclesFetch(), newsFetch(), videoNewsFetch()])
+    await Promise.all([trustedUsFetch(), vehiclesFetch(), newsFetch(), videoNewsFetch(), statisticsFetch()])
   } catch (error) {
     console.error("Xatolik:", error);
   }

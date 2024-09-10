@@ -5,15 +5,15 @@
       tabindex="0"
       @focusout="handleFocusOut"
   >
-    <div :class="headClass" @click="toggleShow">
+    <div @click="toggleShow">
       <slot name="head"></slot>
     </div>
     <Transition name="dropdown" mode="out-in">
       <div
           v-show="showBody"
-          :class="[bodyClass]"
           data-dropdown-body
-          class="absolute shadow-body right-0 w-max min-w-full translate-y-full bg-white rounded-xl overflow-hidden -bottom-2 z-[11] border border-white-100"
+          class="absolute right-0 w-max min-w-full translate-y-full bg-white/20 rounded-xl overflow-hidden -bottom-2 z-[11] border "
+          :class="{'text-dark border-white shadow-2xl': layout === 'orange', 'text-white border-white-100 ' : layout === 'default'}"
       >
         <slot name="body" />
       </div>
@@ -22,14 +22,14 @@
 </template>
 
 <script lang="ts" setup>
-import type { TClassName } from '~/types/common'
+import {useRoute} from "vue-router";
 
 interface Props {
-  headClass?: TClassName
-  bodyClass?: TClassName
   show?: boolean | undefined
   withTrigger?: boolean
 }
+const route = useRoute()
+const layout = route.meta.layout
 const props = withDefaults(defineProps<Props>(), {
   show: undefined,
   headClass: '',
