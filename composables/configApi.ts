@@ -1,11 +1,11 @@
-import { FetchOptions } from 'ofetch'
-import { ref } from 'vue'
-import { useRuntimeConfig } from '#app'
+import {FetchOptions} from 'ofetch'
+import {ref} from 'vue'
+import {useRuntimeConfig} from '#app'
 
 export const configApi = () => {
     const config = useRuntimeConfig()
     const baseURL = config.public.baseURL
-    const isLoading = ref(false)
+    const isLoading = ref(true)
     const currentLanguage = ref('uz')
 
     const $service = $fetch.create({

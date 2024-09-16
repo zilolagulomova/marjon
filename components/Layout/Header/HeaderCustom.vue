@@ -7,8 +7,18 @@
       </NuxtLink>
       <ul class="flex items-center gap-7">
         <li v-for="item in links">
-          <NuxtLink :class="{'text-dark' : layout === 'orange', 'text-white' : layout === 'default', 'active': route.path === item.path}"
-                    class="text-sm hover:text-green duration-300 cursor-pointer" :to="item.path"
+          <NuxtLink
+              v-if="item.path === '/category' || item.path === '/calculator' || item.path === '/contact'"
+              @click.prevent="navigatedToCategory(item)"
+              :class="{'text-dark' : layout === 'orange', 'text-white' : layout === 'default', 'active': route.path === item.path}"
+              class="text-sm hover:text-green duration-300 cursor-pointer"
+          >
+            {{ $t(`${item.name}`) }}
+          </NuxtLink>
+          <NuxtLink
+              v-else
+              :class="{'text-dark' : layout === 'orange', 'text-white' : layout === 'default', 'active': route.path === item.path}"
+              class="text-sm hover:text-green duration-300 cursor-pointer" :to="item.path"
           >
             {{ $t(`${item.name}`) }}
           </NuxtLink>
@@ -29,6 +39,7 @@
 import {ref, onMounted, onUnmounted} from 'vue';
 import {links} from '@/constants'
 import {useRoute} from "vue-router";
+import {useRouter} from "vue-router";
 
 
 useHead({
@@ -36,6 +47,7 @@ useHead({
 })
 const show = ref(true);
 const route = useRoute();
+const router = useRouter();
 const layout = route.meta.layout;
 
 function handleScroll() {
@@ -50,6 +62,25 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
 });
+const navigatedToCategory = (item: {path: string}) => {
+  let sectionId = '';
+
+  if(item.path === '/category') {
+    sectionId = 'category'
+  } else if(item.path === '/calculator') {
+    sectionId = 'calculator'
+  } else if(item.path === '/contact') {
+    sectionId = 'contact'
+  }
+  router.push('/').then(() => {
+    setTimeout(() => {
+      const section = document.getElementById(sectionId);
+      if(section) {
+        section.scrollIntoView({behavior: "smooth"})
+      }
+    }, 500)
+  })
+}
 </script>
 
 <style scoped>
@@ -61,6 +92,7 @@ onUnmounted(() => {
   transition: ease-in 0.8s;
   transform: translateY(0px);
 }
+
 .active {
   color: #59DEBE;
 }

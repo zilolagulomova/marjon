@@ -1,6 +1,8 @@
 <template>
-  <section class="py-24 linear md:pt-56 bg-purple overflow-x-hidden">
-    <div class="container flex flex-col md:flex-row items-start justify-between">
+  <section class="py-24 linear md:pt-56 bg-purple overflow-hidden relative">
+    <img src="/images/svg/fill-bg.svg" class="absolute top-[20vh] left-[10vw] w-full min-w-[2500px]" alt="pattern marjon">
+
+    <div class="container flex flex-col md:flex-row items-start justify-between relative">
       <div class="lg:min-w-[50%] pl-7 mt-9 sm:mt-[140px] lg:mt-6 pb-6">
         <i18n-t
             keypath="main_text"
@@ -22,13 +24,15 @@
               size="md"
               iconPosition="left"
               icon="icon-arrow-right"
+              @click="toCalculatorSection"
           />
           <CommonButton
-              :text="$t('book')"
+              :text="$t('categories')"
               variant="dark"
               size="md"
               iconPosition="left"
               icon="icon-apps"
+              @click="toCategorySection"
           />
         </div>
       </div>
@@ -41,6 +45,19 @@
 
 <script setup lang="ts">
 
+const toCategorySection = () => {
+  const section = document.getElementById('category');
+  if(section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+const toCalculatorSection = () => {
+  const section = document.getElementById('calculator');
+  if(section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+}
 </script>
 
 <style scoped>

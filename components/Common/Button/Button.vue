@@ -1,6 +1,6 @@
 <template>
   <button
-      :class="['rounded-xl duration-300 active:scale-95 border border-transparent flex items-center gap-2',
+      :class="['rounded-xl duration-300 active:scale-95 border border-transparent flex items-center justify-center gap-2',
       buttonClasses,
       sizeClasses,
       iconPositions,
@@ -19,18 +19,18 @@ interface ButtonProps {
   size?: 'sm' | 'md',
   icon?: string,
   iconPosition?: 'left' | 'right',
-  disabled?: boolean
+  disabled?: boolean,
 }
 
 const props = defineProps<ButtonProps>()
 const buttonClasses = computed(() => {
   const variants = {
-    primary: 'bg-green text-white hover:bg-green font-normal hover:shadow-[0px_6px_30px_0px_rgba(63,242,200,0.40)]',
-    secondary: 'bg-gray text-dark hover:bg-dark/20',
-    outline: 'border !border-gray text-dark hover:bg-white-100 hover:!border-dark/20',
-    dark: 'bg-white/[12%] text-white hover:bg-white/[24%]',
-    danger: 'bg-red text-white hover:bg-[#EB1F38]',
-    white: 'bg-white border !border-gray text-dark hover:bg-white-100 hover:!border-dark/20'
+    primary: 'bg-green text-white hover:bg-green text-center font-normal hover:shadow-[0px_6px_30px_0px_rgba(63,242,200,0.40)]',
+    secondary: 'bg-gray text-dark text-center hover:bg-dark/20',
+    outline: 'border !border-gray text-dark text-center hover:bg-white-100 hover:!border-dark/20',
+    dark: 'bg-white/[12%] text-white text-center hover:bg-white/[24%]',
+    danger: 'bg-red text-white text-center hover:bg-[#EB1F38]',
+    white: 'bg-white border !border-gray text-center text-dark hover:bg-white-100 hover:!border-dark/20'
   };
   return variants[props.variant]
 })

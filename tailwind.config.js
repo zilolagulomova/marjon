@@ -11,7 +11,8 @@ module.exports = {
                     DEFAULT: '#230F4B'
                 },
                 green: {
-                    DEFAULT: '#59DEBE'
+                    DEFAULT: '#59DEBE',
+                    100: '#19CC81'
                 },
                 gray: {
                     DEFAULT: '#E7E5EA',
@@ -25,6 +26,10 @@ module.exports = {
                     DEFAULT: '#190A35',
                     100: '#000000'
                 },
+                white: {
+                    DEFAULT: '#FFFFFF',
+                    100: '#F4F3F5'
+                }
             }
         },
     },

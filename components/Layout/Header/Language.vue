@@ -1,9 +1,9 @@
 <template>
-  <div class="dropwdown-container">
+  <div>
     <CommonDropdown
         :show="showDropdown"
         :body-class="[
-      '!w-[124px] border rounded-xl',
+      '!w-[124px] border rounded-xl ',
       variant === 'dark'
         ? 'bg-white/10 backdrop-blur-[25px] border-white/[12%]'
         : 'border-gray-25 bg-white',
@@ -11,7 +11,7 @@
         @click="handleDropdownToggle"
     >
       <template #head>
-        <button  @click.stop="handleDropdownToggle" class="flex items-center text-gray-100 gap-1 cursor-pointer group">
+        <button  @click.stop="handleDropdownToggle" class="flex items-center text-gray-100 gap-2 cursor-pointer group">
           <i
               class="icon-global duration-300 group-hover:text-green"
               :class="{'text-dark': layout === 'orange', 'text-white': layout === 'default'}"
@@ -23,7 +23,7 @@
           {{ currentLang?.name }}
         </span>
           <i
-              class="icon-arrow duration-300 text-sm group-hover:text-green"
+              class="icon-arrow duration-300 text-xs group-hover:text-green"
               :class="[
                   {'text-dark': layout === 'orange', 'text-white': layout === 'default'},
             { '-rotate-90': showDropdown },

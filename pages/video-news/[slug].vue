@@ -3,9 +3,7 @@
 </script>
 
 <template>
-  <section id="calculator">
-    <h2>Calculator</h2>
-  </section>
+
 </template>
 
 <style scoped>

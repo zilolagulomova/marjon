@@ -9,7 +9,7 @@
     </div>
     <SectionsAboutClients v-if="clients?.results?.length > 0" :clients="clients?.results || []"/>
     <SectionsAboutSharh/>
-    <SectionsContact />
+<!--    <SectionsContact />-->
   </main>
 </template>
 
@@ -75,4 +75,5 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+
 </style>

@@ -1,11 +1,11 @@
 export const links = [
     {
         name: 'about_us',
-        path: '/about'
+        path: '/about',
     },
     {
         name: 'vehicle_types',
-        path: '/category'
+        path: '/category',
     },
     {
         name: 'calculator',
@@ -17,10 +17,10 @@ export const links = [
     },
     {
         name: 'video_news',
-        path: '/video_news'
+        path: '/video-news'
     },
     {
         name: 'feedback',
-        path: '/contact-us'
+        path: '/contact'
     },
 ]

@@ -1,5 +1,5 @@
 <template>
-  <section class="py-12">
+  <section class="py-12" id="category">
     <div class="container">
       <CommonSectionTitleDescription class="text-center" :title="$t('vehicle_types')"/>
       <div class="relative">

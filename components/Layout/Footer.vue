@@ -1,5 +1,6 @@
 <template>
-<section class="bg-purple pt-16 relative linear">
+<section class="bg-purple pt-16 relative linear overflow-hidden">
+  <img src="/images/svg/fill-bg.svg" class="absolute top-[2%] left-[10vw] w-full min-w-[1800px]" alt="pattern marjon">
   <div class="container">
     <div class="flex flex-col items-center gap-10">
       <NuxtLink to="/">

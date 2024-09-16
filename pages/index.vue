@@ -1,25 +1,31 @@
 <template>
-  <main>
-    <SectionsHero/>
-    <SectionsAbout/>
-    <SectionsPartners :data="data?.results || []"/>
-    <SectionsVehicles :vehicles="vehicles?.results || []"/>
-    <SectionsNews :news="news?.results || []"/>
-    <SectionsNewsVideo :videoNews="videoNews?.results || []"/>
-    <div v-if="statistics?.results">
-      <SectionsStatistics :statistics="statistics?.results || []"/>
+  <main class="relative">
+    <CommonModalAuthModal />
+    <CommonLoader v-if="isLoading" class="absolute z-50 "/>
+    <div>
+      <SectionsHero />
+      <SectionsAbout :showModal="() => showModal = true"/>
+      <SectionsPartners :data="data?.results || []"/>
+      <SectionsVehicles :vehicles="vehicles?.results || []"/>
+      <SectionsMainNews :news="news?.results || []"/>
+      <SectionsMainNewsVideo :videoNews="videoNews?.results || []"/>
+      <div v-if="statistics?.results">
+        <SectionsStatistics :statistics="statistics?.results || []"/>
+      </div>
+      <SectionsCalculator/>
+<!--      <SectionsContact/>-->
+      <SectionsApps/>
     </div>
-    <SectionsApps />
   </main>
 </template>
 
 <script setup lang="ts">
+import {configApi} from "~/composables/configApi";
+
+const {$get, isLoading} = configApi()
 definePageMeta({
   layout: 'default',
 })
-import {configApi} from "~/composables/configApi";
-
-const {$get} = configApi()
 
 interface TrustedUsItem {
   url: string,
@@ -64,6 +70,8 @@ const vehicles = ref<{ results: CarType[] } | null>(null);
 const news = ref<{ results: News[] } | null>(null);
 const videoNews = ref<{ results: VideoNews[] } | null>(null);
 const statistics = ref<{ results: Statistics[] } | null>(null);
+
+
 
 const trustedUsFetch = async () => {
   try {
@@ -120,4 +128,5 @@ onMounted(async () => {
   width: 100%;
   height: 400px;
 }
+
 </style>

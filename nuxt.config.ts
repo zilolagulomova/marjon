@@ -42,5 +42,6 @@ export default defineNuxtConfig({
         public: {
             baseURL: process.env.BASE_URL || 'https://marjon.uicgroup.tech/api/web/v1'
         }
-    }
+    },
+    plugins: ['~/plugins/mask.ts']
 })
