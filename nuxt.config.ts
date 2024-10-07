@@ -3,7 +3,7 @@ export default defineNuxtConfig({
     $meta: undefined,
     compatibilityDate: '2024-04-03',
     devtools: {enabled: true},
-    modules: ['@nuxtjs/tailwindcss', '@nuxt/image', '@nuxtjs/i18n'],
+    modules: ['@nuxtjs/tailwindcss', '@nuxt/image', '@nuxtjs/i18n', '@pinia/nuxt'],
     i18n: {
         langDir: 'locales',
         baseUrl: 'https://marjon.uz/',

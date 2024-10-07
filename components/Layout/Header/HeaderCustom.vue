@@ -25,6 +25,7 @@
         </li>
       </ul>
       <CommonButton
+          @click="show = true"
           :text="$t('enter')"
           variant="primary"
           size="md"
@@ -33,49 +34,39 @@
       />
     </div>
   </div>
+  <AuthModal :show="show" @close="show = false" class="absolute top-0 z-50"/>
+
 </template>
 
 <script setup lang="ts">
-import {ref, onMounted, onUnmounted} from 'vue';
 import {links} from '@/constants'
 import {useRoute} from "vue-router";
 import {useRouter} from "vue-router";
+import AuthModal from "~/components/Common/Modal/AuthModal.vue";
 
 
 useHead({
   title: 'Marjon'
 })
-const show = ref(true);
+const show = ref(false);
 const route = useRoute();
 const router = useRouter();
 const layout = route.meta.layout;
 
-function handleScroll() {
-  const scrollThreshold = 10;
-  show.value = window.scrollY < scrollThreshold;
-}
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
-});
-const navigatedToCategory = (item: {path: string}) => {
+const navigatedToCategory = (item: { path: string }) => {
   let sectionId = '';
 
-  if(item.path === '/category') {
+  if (item.path === '/category') {
     sectionId = 'category'
-  } else if(item.path === '/calculator') {
+  } else if (item.path === '/calculator') {
     sectionId = 'calculator'
-  } else if(item.path === '/contact') {
+  } else if (item.path === '/contact') {
     sectionId = 'contact'
   }
   router.push('/').then(() => {
     setTimeout(() => {
       const section = document.getElementById(sectionId);
-      if(section) {
+      if (section) {
         section.scrollIntoView({behavior: "smooth"})
       }
     }, 500)

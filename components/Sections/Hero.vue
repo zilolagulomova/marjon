@@ -1,6 +1,7 @@
 <template>
   <section class="py-24 linear md:pt-56 bg-purple overflow-hidden relative">
-    <img src="/images/svg/fill-bg.svg" class="absolute top-[20vh] left-[10vw] w-full min-w-[2500px]" alt="pattern marjon">
+    <img src="/images/svg/fill-bg.svg" class="absolute top-[20vh] left-[10vw] w-full min-w-[2500px]"
+         alt="pattern marjon">
 
     <div class="container flex flex-col md:flex-row items-start justify-between relative">
       <div class="lg:min-w-[50%] pl-7 mt-9 sm:mt-[140px] lg:mt-6 pb-6">
@@ -16,7 +17,18 @@
           ></template>
         </i18n-t>
         <p class="mt-6 lg:mt-10 text-base leading-[140%] font-light text-gray-200"> {{ $t('main_subtitle') }}</p>
-        <img class="w-full mt-8 lg:hidden" src="/images/isuzu.webp" alt="cargo"/>
+        <img
+            v-if="useI18n().locale.value === 'ru'"
+            class="w-full mt-8 lg:hidden"
+            src="/images/isuzu-ru.webp"
+            alt="truck"
+        />
+        <img
+            v-else-if="useI18n().locale.value === 'uz'"
+            src="/images/isuzu.webp"
+            class="w-full mt-8 lg:hidden"
+            alt="truck"
+        />
         <div class="flex items-center gap-4 mt-6 lg:mt-[70px]">
           <CommonButton
               :text="$t('book')"
@@ -36,26 +48,37 @@
           />
         </div>
       </div>
-      <img class="w-full max-lg:hidden  pointer-events-none ml-16 max-w-[862px]" src="/images/isuzu.webp"
-           alt="cargo"/>
+      <img
+          v-if="useI18n().locale.value === 'ru'"
+          class="w-full max-lg:hidden ml-16 max-w-[862px]"
+          src="/images/isuzu-ru.webp"
+          alt="truck"
+      />
+      <img
+          v-if="useI18n().locale.value === 'uz'"
+          class="w-full max-lg:hidden ml-16 max-w-[862px]"
+          src="/images/isuzu.webp"
+          alt="cargo"
+      />
     </div>
   </section>
 
 </template>
 
 <script setup lang="ts">
+import {useI18n} from 'vue-i18n'
 
 const toCategorySection = () => {
   const section = document.getElementById('category');
-  if(section) {
-    section.scrollIntoView({ behavior: 'smooth' });
+  if (section) {
+    section.scrollIntoView({behavior: 'smooth'});
   }
 }
 
 const toCalculatorSection = () => {
   const section = document.getElementById('calculator');
-  if(section) {
-    section.scrollIntoView({ behavior: 'smooth' });
+  if (section) {
+    section.scrollIntoView({behavior: 'smooth'});
   }
 }
 </script>

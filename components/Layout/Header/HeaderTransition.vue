@@ -3,12 +3,12 @@
     <div v-if="show" class="outer py-5"
          :class="{ 'header-white': layout === 'orange', 'header-purple': layout === 'default' }"
     >
-      <div class="container px-12 flex items-center justify-between">
+      <div class="container px-10 flex items-center justify-between">
         <!--  Contacts      -->
         <div class="flex items-center gap-3">
           <div class="flex items-center gap-1.5 group">
-            <i class="icon-phone-call text-gray-200 group-hover:text-green text-lg duration-300"
-               :class="{'text-green': layout === 'orange', 'text-gray-200': layout === 'default'}"
+            <i class="icon-phone-call group-hover:text-green text-base duration-300"
+               :class="{'text-green': layout === 'orange', 'text-white/20': layout === 'default'}"
             ></i>
             <NuxtLink class="text-xs font-normal group-hover:text-green duration-300"
                       :class="{'text-dark': layout === 'orange', 'text-white': layout === 'default'}"
@@ -16,8 +16,8 @@
             </NuxtLink>
           </div>
           <div class="flex items-center gap-1.5 group">
-            <i class="icon-location group-hover:text-green text-lg duration-300"
-               :class="{'text-green': layout === 'orange', 'text-gray-200': layout === 'default'}"></i>
+            <i class="icon-location group-hover:text-green text-base duration-300"
+               :class="{'text-green': layout === 'orange', 'text-white/20': layout === 'default'}"></i>
             <NuxtLink class="text-xs font-normal group-hover:text-green duration-300"
                       :class="{'text-dark': layout === 'orange', 'text-white': layout === 'default'}"
                       :to="map" target="_blank">{{ data?.location.name }}
@@ -27,16 +27,16 @@
         <!--  Links      -->
         <div class="flex items-center gap-3">
           <NuxtLink target="_blank" class="" :to="data?.facebook">
-            <i class="icon-facebook text-xl hover:text-green duration-300 text-gray-200"></i>
+            <i class="icon-facebook text-xl hover:text-green duration-300 text-gray-100"></i>
           </NuxtLink>
           <NuxtLink target="_blank" class="" :to="data?.instagram">
-            <i class="icon-instagram text-xl hover:text-green duration-300 text-gray-200"></i>
+            <i class="icon-instagram text-xl hover:text-green duration-300 text-gray-100"></i>
           </NuxtLink>
           <NuxtLink target="_blank" class="" :to="data?.telegram">
-            <i class="icon-telegram text-xl hover:text-green duration-300 text-gray-200"></i>
+            <i class="icon-telegram text-xl hover:text-green duration-300 text-gray-100"></i>
           </NuxtLink>
           <NuxtLink target="_blank" class="" :to="data?.youtube">
-            <i class="icon-youtube text-xl hover:text-green duration-300 text-gray-200"></i>
+            <i class="icon-youtube text-xl hover:text-green duration-300 text-gray-100"></i>
           </NuxtLink>
         </div>
         <!--  Language Switcher button    -->

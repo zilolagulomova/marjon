@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-gray-100 py-12">
+  <section class="bg-gray-200 py-12">
     <SectionsMainMore />
     <SectionsMainAboutCompany @click.stop="handleClick" />
   </section>

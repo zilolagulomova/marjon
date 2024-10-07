@@ -1,7 +1,7 @@
 <template>
   <main>
     <SectionsNewsVideoNews/>
-    <div class="bg-gray-100 pt-16 pb-24">
+    <div class="bg-gray-200 pt-16 pb-24">
       <div class="grid grid-cols-1 mt-8 gap-5 sm:grid-cols-2 md:grid-cols-3  lg:grid-cols-4 container">
         <CommonCardsVideoNews v-for="(card, index) in videoNews?.results" :key="index" :card="card"/>
       </div>

@@ -11,11 +11,10 @@
     <Transition name="dropdown" mode="out-in">
       <div
           v-show="showBody"
-          data-dropdown-body
-          class="absolute right-0 w-max min-w-full translate-y-full bg-white/20 rounded-xl overflow-hidden -bottom-2 z-[11] border "
-          :class="{'text-dark border-white shadow-2xl': layout === 'orange', 'text-white border-white-100 ' : layout === 'default'}"
+          class="absolute left-0 translate-y-full shadow border-[0.5px] !w-[124px] rounded-xl overflow-hidden -bottom-2 z-50 "
+          :class="{'text-dark border-gray-200 bg-white': layout === 'orange', 'text-white bg-white/20 border-white/30' : layout === 'default'}"
       >
-        <slot name="body" />
+        <slot name="body"/>
       </div>
     </Transition>
   </div>
@@ -28,6 +27,7 @@ interface Props {
   show?: boolean | undefined
   withTrigger?: boolean
 }
+
 const route = useRoute()
 const layout = route.meta.layout
 const props = withDefaults(defineProps<Props>(), {
@@ -39,6 +39,7 @@ const props = withDefaults(defineProps<Props>(), {
 interface Emits {
   (e: 'toggle', v: boolean): void
 }
+
 const emit = defineEmits<Emits>()
 
 const showBody = ref(props.show ?? false)
@@ -81,11 +82,12 @@ watch(
 .dropdown-enter-active {
   animation: dropdown 0.3s ease-in-out;
 }
+
 .dropdown-leave-active {
   animation: dropdown 0.3s ease-in-out reverse;
 }
 
-.shadow-body {
+.shadow {
   box-shadow: 0 16px 30px 0 rgba(25, 10, 53, 0.12);
 }
 </style>

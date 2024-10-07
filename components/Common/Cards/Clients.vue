@@ -3,7 +3,7 @@
       class=" bg-white h-full w-full pb-[46px] max-w-[268px] rounded-[20px]"
   >
     <div
-        class="w-[100px] h-[100px] rounded-full relative overflow-hidden mx-auto border border-gray-100/90 image-shadow translate-y-[-50px]"
+        class="w-[100px] h-[100px] rounded-full relative overflow-hidden mx-auto border border-gray-200/90 image-shadow translate-y-[-50px]"
     >
       <img
           :src="card.avatar"

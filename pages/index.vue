@@ -1,10 +1,9 @@
 <template>
   <main class="relative">
-    <CommonModalAuthModal />
     <CommonLoader v-if="isLoading" class="absolute z-50 "/>
     <div>
       <SectionsHero />
-      <SectionsAbout :showModal="() => showModal = true"/>
+      <SectionsAbout/>
       <SectionsPartners :data="data?.results || []"/>
       <SectionsVehicles :vehicles="vehicles?.results || []"/>
       <SectionsMainNews :news="news?.results || []"/>
@@ -12,7 +11,6 @@
       <div v-if="statistics?.results">
         <SectionsStatistics :statistics="statistics?.results || []"/>
       </div>
-      <SectionsCalculator/>
 <!--      <SectionsContact/>-->
       <SectionsApps/>
     </div>

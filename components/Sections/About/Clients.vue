@@ -1,5 +1,5 @@
 <template>
-  <section class="py-8 md:py-16 bg-gray-100">
+  <section class="py-8 md:py-16 bg-gray-200">
     <div class="container">
       <div class="grid grid-cols-1 md:grid-cols-2">
         <div class="w-full h-full max-w-[448px] flex flex-col justify-center">

@@ -1,4 +1,3 @@
-
 export function phoneNumberFormatter(number?: string) {
     const format = number
         ?.replace(/\D/g, '')

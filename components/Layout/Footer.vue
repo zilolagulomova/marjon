@@ -13,14 +13,14 @@
           </NuxtLink>
         </li>
       </ul>
-      <div class="flex items-center gap-3 border-[0.2px] border-gray-100/30 rounded-lg p-2 cursor-pointer">
+      <div class="flex items-center gap-3 border-[0.2px] border-gray-200/30 rounded-lg p-2 cursor-pointer">
         <div class="flex items-center gap-1.5 group">
           <i class="icon-phone-call text-green group-hover:text-green text-lg duration-300"></i>
           <a class="text-xs font-normal group-hover:text-green duration-300 text-white"
                     :href="`tel:${data?.phone_number}`">{{ phoneNumberFormatter(data?.phone_number) }}
           </a>
         </div>
-        <div class="h-4 w-[1px] bg-gray-100/30 "></div>
+        <div class="h-4 w-[1px] bg-gray-200/30 "></div>
         <div class="flex items-center gap-1.5 group cursor-pointer">
           <i class="icon-location text-green group-hover:text-green text-lg duration-300"></i>
           <a class="text-xs font-normal group-hover:text-green duration-300 text-white"
@@ -37,16 +37,16 @@
       </p>
       <div class="flex items-center gap-3">
         <NuxtLink target="_blank" class="" :to="data?.facebook">
-          <i class="icon-facebook text-xl hover:text-green duration-300 text-gray-200"></i>
+          <i class="icon-facebook text-xl hover:text-green duration-300 text-gray-100"></i>
         </NuxtLink>
         <NuxtLink target="_blank" class="" :to="data?.instagram">
-          <i class="icon-instagram text-xl hover:text-green duration-300 text-gray-200"></i>
+          <i class="icon-instagram text-xl hover:text-green duration-300 text-gray-100"></i>
         </NuxtLink>
         <NuxtLink target="_blank" class="" :to="data?.telegram">
-          <i class="icon-telegram text-xl hover:text-green duration-300 text-gray-200"></i>
+          <i class="icon-telegram text-xl hover:text-green duration-300 text-gray-100"></i>
         </NuxtLink>
         <NuxtLink target="_blank" class="" :to="data?.youtube">
-          <i class="icon-youtube text-xl hover:text-green duration-300 text-gray-200"></i>
+          <i class="icon-youtube text-xl hover:text-green duration-300 text-gray-100"></i>
         </NuxtLink>
       </div>
       <div class="flex items-center gap-2.5">

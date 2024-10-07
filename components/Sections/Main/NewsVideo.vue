@@ -1,5 +1,5 @@
 <template>
-  <section class="py-16 bg-gray-100">
+  <section class="py-16 bg-gray-200">
     <div class="container">
       <div class="flex items-center justify-between">
         <CommonSectionTitleDescription :title="$t('video_news')" :desc="$t('video_news_text')"/>

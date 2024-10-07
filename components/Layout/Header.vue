@@ -4,7 +4,7 @@
       :class="{ 'header-white': layout === 'orange', 'header-purple': layout === 'default' }"
   >
     <LayoutHeaderTransition class="hidden md:block " v-if="data" :data="data"/>
-    <LayoutHeaderCustom/>
+    <LayoutHeaderCustom @open-modal="$emit('open-modal')" />
   </header>
 </template>
 

@@ -11,6 +11,7 @@
           placeholder="000-00-00"
           type="text"
           v-mask="['## ### ## ##']"
+          v-model="form.values.phone"
       >
         <template #prefix>
           +998

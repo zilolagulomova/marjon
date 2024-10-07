@@ -1,7 +1,8 @@
 <template>
-  <NuxtLinkLocale
-      :to="`/video-news/${card?.slug}`"
-      class="bg-white rounded-2xl hover:shadow-2xl relative overflow-hidden flex flex-col border border-gray hover:border-green duration-300"
+  <a
+      target="_blank"
+      :href="card?.news_url"
+      class="bg-white rounded-2xl overflow-hidden hover:shadow-2xl relative flex flex-col border border-gray hover:border-green duration-300"
   >
     <div class="aspect-video max-h-[150px] relative shrink-0">
     <div class="absolute w-full h-full inset-0 rounded-2xl bg-dark-100/50">
@@ -23,7 +24,7 @@
         {{ card?.created_at }}
       </p>
     </div>
-  </NuxtLinkLocale>
+  </a>
 </template>
 <script setup lang="ts">
 

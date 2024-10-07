@@ -2,16 +2,10 @@
   <div>
     <CommonDropdown
         :show="showDropdown"
-        :body-class="[
-      '!w-[124px] border rounded-xl ',
-      variant === 'dark'
-        ? 'bg-white/10 backdrop-blur-[25px] border-white/[12%]'
-        : 'border-gray-25 bg-white',
-    ]"
         @click="handleDropdownToggle"
     >
       <template #head>
-        <button  @click.stop="handleDropdownToggle" class="flex items-center text-gray-100 gap-2 cursor-pointer group">
+        <button  @click.stop="handleDropdownToggle" class="flex items-center text-gray-200 gap-2 cursor-pointer group">
           <i
               class="icon-global duration-300 group-hover:text-green"
               :class="{'text-dark': layout === 'orange', 'text-white': layout === 'default'}"
@@ -42,7 +36,7 @@
             <div
                 class="flex items-center justify-between gap-4 py-2 px-2 cursor-pointer duration-300"
                 :class="
-              variant === 'dark' ? 'hover:bg-white/[12%]' : 'hover:bg-white-100'
+              variant === 'dark' ? 'hover:bg-white/[12%]' : 'hover:bg-white/[12%]'
             "
                 @click="onChangeLocale(lang?.code)"
             >

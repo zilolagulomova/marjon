@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-purple w-full h-screen linear flex flex-col items-center gap-56 justify-end pb-28">
+  <div class="bg-purple z-[9999] w-full h-screen linear flex flex-col items-center gap-56 justify-end pb-28">
     <div class="flex flex-col items-center justify-center">
       <img src="/images/svg/Logo.svg" class="w-[120px]">
     </div>
