@@ -58,7 +58,6 @@
 <script setup lang="ts">
 import {required} from '@vuelidate/validators'
 import {isValidPhone} from "~/utils";
-import {useErrorHandling} from "~/composables/useHandleError";
 import {useI18n} from "vue-i18n";
 import {useAuthStore} from "~/store/auth";
 
@@ -74,8 +73,6 @@ const close = () => {
   show.value = false;
 };
 
-
-const {handleError} = useErrorHandling()
 const loginForm = useForm(
     {
       phone: '',
@@ -123,7 +120,7 @@ function sendCode(phone: string, type: 'login' | 'register') {
         page.value = 'confirm'
       })
       .catch((err) => {
-        handleError(err)
+        // handleError(err)
       })
 }
 
